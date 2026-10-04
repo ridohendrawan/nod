@@ -1,0 +1,562 @@
+/* Sarah's card (ux-spec 7; design-system 1 and 7): a calm, well-made receipt. Plain words, label
+   above value, her new total set apart. Used on her page and in Dan's preview. */
+
+.owner-card {
+  display: grid;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  border: 1px solid transparent;
+  border-radius: var(--r-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  color: var(--ink);
+  font-size: var(--fs-body-owner);
+  line-height: var(--lh-body-owner);
+  font-weight: 400;
+}
+
+.owner-card-kicker {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.owner-card-title {
+  margin-top: calc(-1 * var(--s-3));
+  font-size: var(--fs-title-2);
+  line-height: var(--lh-title-2);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.owner-card-items {
+  display: grid;
+  gap: var(--s-1);
+  padding-left: 1.25em;
+}
+
+.owner-card-items li::marker {
+  color: var(--text-3);
+}
+
+.owner-card-reason {
+  color: var(--text-2);
+}
+
+.owner-card-label-inline {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.owner-facts {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.owner-facts > div {
+  display: grid;
+  gap: 2px;
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.owner-facts dt {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.owner-facts dd {
+  margin: 0;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.owner-total {
+  display: grid;
+  gap: 2px;
+  padding: var(--s-4);
+  border-radius: var(--r-callout);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.owner-total-label {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.owner-total-figure {
+  font-size: min(var(--fs-money-total), 9vw);
+}
+
+.owner-total-pending {
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.owner-total-was {
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.owner-total-saving {
+  color: var(--go-ink);
+  font-weight: 600;
+}
+
+.owner-actions {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.owner-promise {
+  font-weight: 600;
+}
+
+/* 16 px before "Say no" (design-system 4): the two calm choices sit apart from Approve. */
+.owner-say-no {
+  margin-top: var(--s-1);
+}
+
+.owner-not-sure {
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+}
+
+.owner-actions[inert] {
+  opacity: 0.92;
+}
+
+/* ---- Sarah's page (ux-spec 7) ---------------------------------------------------------------- */
+
+.owner-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100dvh;
+  color: var(--ink);
+  font-size: var(--fs-body-owner);
+  line-height: var(--lh-body-owner);
+}
+
+/* A softer version of Dan's glow: the same paper, a calmer page. */
+.owner-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: 360px;
+  background: radial-gradient(
+    90% 60% at 100% 0%,
+    rgba(255, 184, 0, 0.16),
+    rgba(255, 184, 0, 0) 70%
+  );
+  pointer-events: none;
+}
+
+@media (prefers-contrast: more) {
+  .owner-shell::before {
+    display: none;
+  }
+}
+
+.owner-header {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  max-width: var(--content-owner);
+  margin: 0 auto;
+  padding: calc(var(--safe-top) + var(--s-4)) var(--gutter) var(--s-2);
+}
+
+/* The business's monogram stands in for a logo; Nod's mark never appears on her page. */
+.owner-monogram {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: var(--fs-label);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.owner-business {
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 650;
+}
+
+.owner-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-5);
+  max-width: var(--content-owner);
+  margin: 0 auto;
+  padding: var(--s-4) var(--gutter) calc(var(--s-12) + var(--safe-bottom));
+}
+
+.owner-intro {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.owner-hello {
+  color: var(--text-2-strong);
+}
+
+.owner-title {
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.owner-title:focus {
+  outline: none;
+}
+
+.owner-title:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.owner-lede {
+  color: var(--text-2-strong);
+}
+
+.owner-changes {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--s-1);
+  padding-left: 1.25em;
+}
+
+.owner-section-title {
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 650;
+}
+
+/* Other changes waiting for her: plain links in a white card. */
+.owner-others {
+  display: grid;
+  gap: var(--s-2);
+  padding: var(--s-4) var(--s-5);
+  border: 1px solid transparent;
+  border-radius: var(--r-callout);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.owner-others-title {
+  font-weight: 600;
+}
+
+.owner-others ul {
+  display: grid;
+  gap: var(--s-1);
+  padding: 0;
+  list-style: none;
+}
+
+.owner-others a {
+  display: inline-flex;
+  min-height: var(--target);
+  align-items: center;
+  color: var(--ask);
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
+
+.owner-quiet {
+  color: var(--text-2);
+}
+
+/* Her questions and the builder's replies. */
+.owner-thread {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.thread {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bubble {
+  justify-self: start;
+  display: grid;
+  gap: 2px;
+  max-width: 88%;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid transparent;
+  border-radius: 20px 20px 20px 6px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.bubble.is-mine {
+  justify-self: end;
+  border-radius: 20px 20px 6px 20px;
+  background: var(--ask-tint);
+  box-shadow: none;
+}
+
+.bubble-who {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.bubble-text {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.bubble-time {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+.owner-waiting {
+  color: var(--text-2-strong);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+}
+
+/* "Questions? Call Dan on 0491 570 156": the same place on every state (D69). */
+.owner-help {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid transparent;
+  border-radius: var(--r-callout);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.owner-help svg {
+  flex-shrink: 0;
+  color: var(--ink);
+}
+
+.owner-help a {
+  display: inline-block;
+  min-height: 24px;
+  color: var(--ask);
+  font-weight: 650;
+  white-space: nowrap;
+  text-underline-offset: 0.18em;
+}
+
+.owner-footer {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line);
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+}
+
+/* ---- Done: approved, said no, withdrawn ------------------------------------------------------- */
+
+.owner-done {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-2);
+}
+
+.owner-done .tick-mark {
+  margin-bottom: var(--s-2);
+}
+
+/* The tick draws itself once (D75); with reduced motion it's simply there. */
+.tick-mark-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: owner-tick 600ms var(--ease-out) 250ms forwards;
+}
+
+@keyframes owner-tick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tick-mark-path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+.owner-record {
+  display: grid;
+  gap: var(--s-3);
+  padding: var(--s-5);
+  border: 1px solid transparent;
+  border-radius: var(--r-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.owner-record-number {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-3);
+  padding: var(--s-3) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.owner-record-number b {
+  font-weight: 700;
+}
+
+.owner-keep {
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+}
+
+/* Loading, a broken link, a page that didn't load. */
+.owner-plain {
+  padding-top: calc(var(--safe-top) + var(--s-10));
+}
+
+.owner-mark {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  color: var(--ink);
+}
+
+.owner-skeleton {
+  display: grid;
+  gap: var(--s-4);
+}
+
+/* ---- Her sheets ------------------------------------------------------------------------------- */
+
+.approve-summary {
+  display: grid;
+  margin: 0;
+  padding: var(--s-1) var(--s-4);
+  border-radius: var(--r-callout);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+/* Label and value on one line, so the whole sheet fits a phone without hunting for Approve. */
+.approve-summary > div {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--s-4);
+  padding: var(--s-2) 0;
+}
+
+.approve-summary > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.approve-summary dt {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.approve-summary dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.sheet-notice {
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-input);
+  background: var(--ask-tint);
+  color: var(--ask-ink);
+  font-weight: 600;
+}
+
+.sheet-reason {
+  color: var(--ink);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 600;
+  text-align: center;
+}
+
+.sheet-prose-line {
+  color: var(--text-2-strong);
+}
+
+.btn-text.sheet-link {
+  justify-self: start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* ---- The photo on her card, and larger (D83) ------------------------------------------------- */
+
+.owner-photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-callout);
+  background: var(--surface-2);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.owner-photo img,
+img.owner-photo {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+img.owner-photo {
+  cursor: default;
+}
+
+.photo-large {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-callout);
+}

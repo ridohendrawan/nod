@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="only light" />
+    <meta name="theme-color" content="#F2EFE8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Nod: record a job change on site and get the owner's OK by link."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/nod-icon-180.png" />
+    <title>Nod</title>
+  </head>
+  <body class="builder">
+    <div id="root"></div>
+    <!-- The one screen-reader announcer for this page. It lives outside React so it exists
+         before any message is sent (decisions.md D79). -->
+    <div
+      id="announcer"
+      class="visually-hidden"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <noscript>Nod needs JavaScript turned on.</noscript>
+    <script type="module" src="/src/app/main.tsx"></script>
+  </body>
+</html>

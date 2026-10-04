@@ -1,0 +1,84 @@
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+### frame http://localhost:8821/test.html?track=1&alts=2
+{"t":263,"type":"probe","ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36","unprefixed":"function","prefixed":"function","same":true,"phraseCtor":"function","available":"function","install":"function","protoProps":["grammars","lang","continuous","interimResults","maxAlternatives","onaudiostart","onsoundstart","onspeechstart","onspeechend","onsoundend","onaudioend","onresult","onnomatch","onerror","onstart","onend","abort","start","stop","unspokenPunctuation","quality","processLocally","phrases","constructor"],"isSecureContext":true,"inIframe":false,"policyMic":true,"policyOnDevice":true,"policyFeatures":["on-device-speech-recognition","microphone"],"micPermission":"granted","availability":{"en-AU:local":"downloadable","en-AU:any":"available","en-AU:local:command":"downloadable","en-AU:local:dictation":"unavailable","en-AU:local:conversation":"unavailable","en-US:local":"downloadable","en-US:any":"available","en-US:local:command":"downloadable","en-US:local:dictation":"unavailable","en-US:local:conversation":"unavailable","en-GB:local":"downloadable","en-GB:any":"available","en-GB:local:command":"downloadable","en-GB:local:dictation":"unavailable","en-GB:local:conversation":"unavailable"}}
+{"t":962,"type":"gum","label":"Fake Default Audio Input","settings":{"autoGainControl":true,"channelCount":1,"deviceId":"default","echoCancellation":true,"groupId":"d3557ecad9a6dd164a113db9bf1230c5d18a4d7b10c0347c7837bff43d1b3c97","latency":0.01,"noiseSuppression":true,"sampleRate":48000,"sampleSize":16,"voiceIsolation":false}}
+{"t":962,"type":"config","lang":"en-AU","continuous":true,"interimResults":true,"maxAlternatives":2,"processLocally":false,"unspokenPunctuation":false}
+{"t":963,"type":"start-called"}
+{"t":972,"type":"start"}
+{"t":979,"type":"audiostart"}
+{"t":1962,"type":"meter","rms":0,"peak":0}
+{"t":2057,"type":"soundstart"}
+{"t":2057,"type":"speechstart"}
+{"t":2941,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah","c":0.01}]}]}
+{"t":2963,"type":"meter","rms":0.3646,"peak":0.4431}
+{"t":3077,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"there is","c":0.01}]}]}
+{"t":3138,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is ask","c":0.01}]}]}
+{"t":3252,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked","c":0.01}]}]}
+{"t":3424,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for","c":0.01}]}]}
+{"t":3585,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an","c":0.01}]}]}
+{"t":3722,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" asked for an","c":0.01}]}]}
+{"t":3788,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" asked for an extra","c":0.01}]}]}
+{"t":3812,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" for an extra","c":0.01}]}]}
+{"t":3964,"type":"meter","rms":0.0864,"peak":0.4431}
+{"t":4043,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" an extra double","c":0.01}]}]}
+{"t":4192,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" extra double","c":0.01}]}]}
+{"t":4404,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" double","c":0.01}]}]}
+{"t":4526,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" double power","c":0.01}]}]}
+{"t":4640,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" power","c":0.01}]}]}
+{"t":4785,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint","c":0.01}]}]}
+{"t":4872,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint on","c":0.01}]}]}
+{"t":4908,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint on the","c":0.01}]}]}
+{"t":4961,"type":"meter","rms":0.1944,"peak":0.4431}
+{"t":5160,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint on the end","c":0.01}]}]}
+{"t":5222,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint on the end of","c":0.01}]}]}
+{"t":5273,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint on the end of the","c":0.01}]}]}
+{"t":5349,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" on the end of the","c":0.01}]}]}
+{"t":5456,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the end of the","c":0.01}]}]}
+{"t":5507,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" end of the","c":0.01}]}]}
+{"t":5752,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" of the island","c":0.01}]}]}
+{"t":5820,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the island","c":0.01}]}]}
+{"t":5886,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" island","c":0.01}]}]}
+{"t":5963,"type":"meter","rms":0.0345,"peak":0.4431}
+{"t":6118,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" island Ben","c":0.01}]}]}
+{"t":6240,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" island bench","c":0.01}]}]}
+{"t":6335,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" bench","c":0.01}]}]}
+{"t":6843,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]}]}
+{"t":6961,"type":"meter","rms":0,"peak":0.4431}
+{"t":7963,"type":"meter","rms":0,"peak":0.4431}
+{"t":8962,"type":"meter","rms":0.2178,"peak":0.4431}
+{"t":8986,"type":"result","resultIndex":1,"len":2,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 2","c":0.01}]}]}
+{"t":9298,"type":"result","resultIndex":1,"len":2,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220","c":0.01}]}]}
+{"t":9534,"type":"result","resultIndex":1,"len":2,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220 ol","c":0.01}]}]}
+{"t":9589,"type":"result","resultIndex":1,"len":2,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220","c":0.01}]}]}
+{"t":9703,"type":"result","resultIndex":1,"len":2,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220 roll up","c":0.01}]}]}
+{"t":9892,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" roll up","c":0.01}]}]}
+{"t":9962,"type":"meter","rms":0.2028,"peak":0.4431}
+{"t":10048,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" rollup","c":0.01}]}]}
+{"t":10125,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" olap","c":0.01}]}]}
+{"t":10171,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" rollup won't","c":0.01}]}]}
+{"t":10413,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" rollup won't hold","c":0.01}]}]}
+{"t":10652,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" rollup won't hold us","c":0.01}]}]}
+{"t":10775,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220 rollup won't","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" hold us up","c":0.01}]}]}
+{"t":10961,"type":"meter","rms":0,"peak":0.4431}
+{"t":10991,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220 rollup won't hold","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" us up","c":0.01}]}]}
+{"t":11401,"type":"result","resultIndex":1,"len":3,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":false,"alts":[{"t":" 220 rollup won't hold us","c":0.9}]},{"i":2,"final":false,"alts":[{"t":" up","c":0.01}]}]}
+{"t":11434,"type":"result","resultIndex":1,"len":2,"results":[{"i":0,"final":true,"alts":[{"t":"Sarah is asked for an extra double PowerPoint on the end of the island bench","c":0.938},{"t":"Sarah's asked for an extra double PowerPoint on the end of the island bench","c":0.944}]},{"i":1,"final":true,"alts":[{"t":" 220 roll up won't hold us up","c":0.889},{"t":" 220 rollup won't hold us up","c":0.925}]}]}
+{"t":11962,"type":"meter","rms":0,"peak":0.4431}
+{"t":12961,"type":"meter","rms":0,"peak":0.4431}
+{"t":13963,"type":"meter","rms":0,"peak":0.4431}
+{"t":14963,"type":"meter","rms":0,"peak":0.4431}
+{"t":15962,"type":"meter","rms":0,"peak":0.4431}
+{"t":16962,"type":"meter","rms":0,"peak":0.4431}
+{"t":17961,"type":"meter","rms":0,"peak":0.4431}
+{"t":18962,"type":"meter","rms":0,"peak":0.4431}
+{"t":19961,"type":"meter","rms":0,"peak":0.4431}
+{"t":20962,"type":"meter","rms":0,"peak":0.4431}
+{"t":21963,"type":"meter","rms":0,"peak":0.4431}
+{"t":22962,"type":"meter","rms":0,"peak":0.4431}
+{"t":23963,"type":"meter","rms":0,"peak":0.4431}
+{"t":24962,"type":"meter","rms":0,"peak":0.4431}
+{"t":25578,"type":"speechend"}
+{"t":25578,"type":"soundend"}
+{"t":25578,"type":"audioend"}
+{"t":25656,"type":"end"}
+### wall ms 26164

@@ -1,0 +1,128 @@
+/* A phone, drawn around a page of Nod (src/ui/PhoneFrame.tsx): the bezel, the status bar and the
+   home indicator over a 390 px screen. On a computer, the demo stage draws two (stage.css). */
+
+.phone {
+  --bezel: 12px;
+  position: relative;
+  padding: var(--bezel);
+  border-radius: 64px;
+  background: linear-gradient(145deg, #34373e, #14161a 38%, #0c0d10);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 5px #0c0d10,
+    0 2px 4px rgba(20, 22, 26, 0.18),
+    0 40px 80px -28px rgba(20, 22, 26, 0.55),
+    0 28px 70px -34px rgba(150, 95, 0, 0.45);
+}
+
+.phone-screen {
+  position: relative;
+  width: 390px;
+  /* The stage scales the phones as a pair, so each screen keeps one height (stage.css). */
+  height: 780px;
+  overflow: hidden;
+  border-radius: 52px;
+  background: var(--bg);
+}
+
+.phone-page {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--bg);
+}
+
+/* The status bar sits over the page, in the room the page leaves for it (--safe-top). */
+.phone-status {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  padding: 2px 30px 0 38px;
+  color: var(--ink);
+  pointer-events: none;
+}
+
+.phone-clock {
+  font-size: 0.96875rem;
+  line-height: 1;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.phone-island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  width: 118px;
+  height: 34px;
+  border-radius: 999px;
+  background: #050506;
+  transform: translateX(-50%);
+}
+
+.phone-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.phone-icons svg {
+  display: block;
+}
+
+.phone-home {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  z-index: 1;
+  width: 134px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(20, 22, 26, 0.86);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* The side buttons: a little depth, so it reads as a phone at a glance. */
+.phone-button {
+  position: absolute;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2a2d33, #0c0d10);
+}
+
+.phone-button-action {
+  top: 132px;
+  left: -3px;
+  height: 30px;
+}
+
+.phone-button-up {
+  top: 184px;
+  left: -3px;
+  height: 58px;
+}
+
+.phone-button-down {
+  top: 256px;
+  left: -3px;
+  height: 58px;
+}
+
+.phone-button-side {
+  top: 214px;
+  right: -3px;
+  height: 92px;
+}
+
+@media (forced-colors: active) {
+  .phone {
+    border: 2px solid CanvasText;
+  }
+}

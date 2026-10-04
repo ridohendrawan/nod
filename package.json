@@ -1,0 +1,53 @@
+{
+  "name": "nod",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Nod: say a job change on site, check it against the state rules, and get the owner’s OK. A browser-only prototype.",
+  "type": "module",
+  "packageManager": "pnpm@11.2.2",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "demo:claude": "vite build && NOD_AI_MODE=claude-code vite preview --port 4174",
+    "typecheck": "tsc -b",
+    "lint": "oxlint",
+    "lint:types": "oxlint --type-aware",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "eval": "node scripts/eval-notes.ts",
+    "smoke": "node scripts/smoke-deploy.ts",
+    "smoke:browser": "node scripts/browser-check.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.131.0",
+    "@base-ui/react": "1.8.0",
+    "@tanstack/react-query": "5.104.0",
+    "inter-ui": "4.1.1",
+    "lucide-react": "1.49.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router": "8.4.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.19.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "oxlint": "1.86.0",
+    "oxlint-tsgolint": "7.0.2003",
+    "prettier": "3.9.9",
+    "typescript": "7.0.2",
+    "vite": "8.3.1",
+    "vitest": "5.0.3"
+  }
+}

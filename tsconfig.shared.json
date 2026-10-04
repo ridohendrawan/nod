@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.shared.tsbuildinfo",
+    "target": "es2023",
+    /* Purity guard: `window`, `process` and `Deno` are type errors in shared code,
+       while crypto.subtle, TextEncoder and Intl stay available (research/stack.md 2.2). */
+    "lib": ["ES2023", "WebWorker"],
+    "types": [],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true
+  },
+  "include": ["shared"]
+}

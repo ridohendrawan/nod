@@ -1,0 +1,90 @@
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+### frame http://localhost:8803/test.html?track=1&alts=3
+{"t":2084,"type":"probe","ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36","unprefixed":"function","prefixed":"function","same":true,"phraseCtor":"function","available":"function","install":"function","protoProps":["grammars","lang","continuous","interimResults","maxAlternatives","onaudiostart","onsoundstart","onspeechstart","onspeechend","onsoundend","onaudioend","onresult","onnomatch","onerror","onstart","onend","abort","start","stop","unspokenPunctuation","quality","processLocally","phrases","constructor"],"isSecureContext":true,"inIframe":false,"policyMic":true,"policyOnDevice":true,"policyFeatures":["on-device-speech-recognition","microphone"],"micPermission":"granted","availability":{"en-AU:local":"downloadable","en-AU:any":"available","en-AU:local:command":"downloadable","en-AU:local:dictation":"unavailable","en-AU:local:conversation":"unavailable","en-US:local":"downloadable","en-US:any":"available","en-US:local:command":"downloadable","en-US:local:dictation":"unavailable","en-US:local:conversation":"unavailable","en-GB:local":"downloadable","en-GB:any":"available","en-GB:local:command":"downloadable","en-GB:local:dictation":"unavailable","en-GB:local:conversation":"unavailable"}}
+{"t":3440,"type":"gum","label":"Fake Default Audio Input","settings":{"autoGainControl":true,"channelCount":1,"deviceId":"default","echoCancellation":true,"groupId":"16a57da78ffab914e3ca56c3e3f082ec7b8df2bfc25d382071265bbd60b18be2","latency":0.01,"noiseSuppression":true,"sampleRate":48000,"sampleSize":16,"voiceIsolation":false}}
+{"t":3440,"type":"config","lang":"en-AU","continuous":true,"interimResults":true,"maxAlternatives":3,"processLocally":false,"unspokenPunctuation":false}
+{"t":3440,"type":"start-called"}
+{"t":3455,"type":"start"}
+{"t":3457,"type":"audiostart"}
+{"t":4441,"type":"meter","rms":0,"peak":0}
+{"t":4547,"type":"soundstart"}
+{"t":4547,"type":"speechstart"}
+{"t":5136,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"golden","c":0.01}]}]}
+{"t":5312,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Golden Nug","c":0.01}]}]}
+{"t":5385,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"golden login","c":0.01}]}]}
+{"t":5441,"type":"meter","rms":0.2437,"peak":0.5741}
+{"t":5673,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"golden login be","c":0.01}]}]}
+{"t":5742,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" login behind","c":0.01}]}]}
+{"t":5846,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" login behind the","c":0.01}]}]}
+{"t":5971,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" behind the","c":0.01}]}]}
+{"t":6327,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the","c":0.01}]}]}
+{"t":6381,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the G","c":0.01}]}]}
+{"t":6440,"type":"meter","rms":0,"peak":0.5741}
+{"t":6451,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" GP","c":0.01}]}]}
+{"t":6567,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" GPO","c":0.01}]}]}
+{"t":6982,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" GPO then","c":0.01}]}]}
+{"t":7168,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" then run","c":0.01}]}]}
+{"t":7441,"type":"meter","rms":0.1084,"peak":0.5741}
+{"t":7462,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" then run the","c":0.01}]}]}
+{"t":7601,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" run the","c":0.01}]}]}
+{"t":7677,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" run the SPL","c":0.01}]}]}
+{"t":7720,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" run the splash","c":0.01}]}]}
+{"t":7771,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the splash","c":0.01}]}]}
+{"t":7899,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the Splash Back","c":0.01}]}]}
+{"t":8059,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" splash back up","c":0.01}]}]}
+{"t":8192,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" splash back up to the","c":0.01}]}]}
+{"t":8302,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" back up to the","c":0.01}]}]}
+{"t":8440,"type":"meter","rms":0.0516,"peak":0.5741}
+{"t":8479,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" up to the","c":0.01}]}]}
+{"t":8670,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" to the","c":0.01}]}]}
+{"t":8735,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" to the range","c":0.01}]}]}
+{"t":8776,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" range","c":0.01}]}]}
+{"t":8908,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" range hood","c":0.01}]}]}
+{"t":9329,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" hood","c":0.01}]}]}
+{"t":9439,"type":"meter","rms":0.1679,"peak":0.5741}
+{"t":9505,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" add","c":0.01}]}]}
+{"t":9621,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" add a","c":0.01}]}]}
+{"t":9741,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" add a double","c":0.01}]}]}
+{"t":10105,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" a double","c":0.01}]}]}
+{"t":10234,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" double power","c":0.01}]}]}
+{"t":10337,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" power","c":0.01}]}]}
+{"t":10417,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint","c":0.01}]}]}
+{"t":10440,"type":"meter","rms":0.0404,"peak":0.5741}
+{"t":10704,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint and","c":0.01}]}]}
+{"t":10887,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" PowerPoint and a","c":0.01}]}]}
+{"t":11008,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and a","c":0.01}]}]}
+{"t":11071,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and a dad","c":0.01}]}]}
+{"t":11187,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and a dat","c":0.01}]}]}
+{"t":11257,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and a dado","c":0.01}]}]}
+{"t":11310,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" a dado r","c":0.01}]}]}
+{"t":11376,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" a dado rail","c":0.01}]}]}
+{"t":11441,"type":"meter","rms":0.1036,"peak":0.5741}
+{"t":11498,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" dado rail in","c":0.01}]}]}
+{"t":11667,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" dado rail in the","c":0.01}]}]}
+{"t":11851,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a dado","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" rail in the en","c":0.01}]}]}
+{"t":11979,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a dado rail","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" in the en","c":0.01}]}]}
+{"t":12029,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a dado rail","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" in the ensu","c":0.01}]}]}
+{"t":12097,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a dado rail in","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the ensu","c":0.01}]}]}
+{"t":12148,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a dado rail in","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the ensuite","c":0.01}]}]}
+{"t":12262,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a dado rail in the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" ensuite","c":0.01}]}]}
+{"t":12441,"type":"meter","rms":0,"peak":0.5741}
+{"t":12778,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":true,"alts":[{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a dado rail in the ensuite","c":0.956},{"t":"golden login behind the GPO then run the splash back up to the range hood add a double PowerPoint and a data rail in the ensuite","c":0.955},{"t":"golden login in behind the GPO then run the splash back up to the range hood add a double PowerPoint and a data rail in the ensuite","c":0.932}]}]}
+{"t":13440,"type":"meter","rms":0,"peak":0.5741}
+{"t":14441,"type":"meter","rms":0,"peak":0.5741}
+{"t":15440,"type":"meter","rms":0,"peak":0.5741}
+{"t":16441,"type":"meter","rms":0,"peak":0.5741}
+{"t":17441,"type":"meter","rms":0,"peak":0.5741}
+{"t":18442,"type":"meter","rms":0,"peak":0.5741}
+{"t":19440,"type":"meter","rms":0,"peak":0.5741}
+{"t":20441,"type":"meter","rms":0,"peak":0.5741}
+{"t":21440,"type":"meter","rms":0,"peak":0.5741}
+{"t":22440,"type":"meter","rms":0,"peak":0.5741}
+{"t":23440,"type":"meter","rms":0,"peak":0.5741}
+{"t":24440,"type":"meter","rms":0,"peak":0.5741}
+{"t":25441,"type":"meter","rms":0,"peak":0.5741}
+{"t":26440,"type":"meter","rms":0,"peak":0.5741}
+{"t":26937,"type":"speechend"}
+{"t":26937,"type":"soundend"}
+{"t":26937,"type":"audioend"}
+{"t":27007,"type":"end"}
+### wall ms 29306

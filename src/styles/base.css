@@ -1,0 +1,231 @@
+/* Base styles: docs/design-system.md. One measured light palette; no dark mode (§2). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Also on html: iOS 26+ tints its toolbars from the page. */
+  background: var(--bg);
+  color: var(--ink);
+  color-scheme: only light;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+/* Two moods, one system (§1): a heavier weight survives glare for Dan; Sarah reads 17 px. */
+body.builder {
+  font-size: var(--fs-body-builder);
+  line-height: var(--lh-body-builder);
+  font-weight: 500;
+}
+
+body.owner {
+  font-size: var(--fs-body-owner);
+  line-height: var(--lh-body-owner);
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Inputs at 17 px: iOS zooms the page for anything under 16 px. Zoom is never disabled. */
+input,
+textarea,
+select {
+  font-size: var(--fs-input);
+}
+
+a {
+  color: var(--ask);
+  text-underline-offset: 0.15em;
+}
+
+::selection {
+  background: var(--flash);
+  color: var(--ink);
+}
+
+/* Focus ring (§2): a 3 px ink outline at a 2 px offset with an amber halo outside it, so one
+   rule shows on paper, on the dark panel and on amber buttons. Never removed for keyboards. */
+/* Specific enough to beat any component's own shadow (cards and round buttons have one). */
+:is(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 2px var(--surface),
+    0 0 0 8px var(--amber);
+}
+
+/* Headings that receive focus on navigation: no ring for pointer users. */
+[tabindex='-1']:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Numbers (§3): tabular figures so totals don't jiggle and columns line up. */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Record numbers (§3) are read aloud over the phone, so a zero can't pass for an O, nor a one for
+   an I: the slashed zero and Inter's disambiguation set. They take the size of their line. */
+.record-id {
+  font-variant-numeric: tabular-nums slashed-zero;
+  font-feature-settings: 'ss02' 1;
+  letter-spacing: 0.04em;
+}
+
+/* Type styles (§3). Big sizes use Inter's Display cut (opsz 32) at a medium weight with tight
+   tracking: the calm, expensive look of the references, still 400 or heavier for glare. */
+.t-display {
+  font-size: var(--fs-display);
+  line-height: 1;
+  font-weight: 550;
+  letter-spacing: -0.04em;
+  font-variation-settings: 'opsz' 32;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-money-hero {
+  font-size: var(--fs-money-hero);
+  line-height: var(--lh-money-hero);
+  font-weight: 550;
+  letter-spacing: -0.035em;
+  font-variation-settings: 'opsz' 32;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-money-total {
+  font-size: var(--fs-money-total);
+  line-height: var(--lh-money-total);
+  font-weight: 550;
+  letter-spacing: -0.03em;
+  font-variation-settings: 'opsz' 32;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The currency sign sits smaller and higher than the figures, like a price tag. */
+.cur {
+  display: inline-block;
+  margin-right: 0.04em;
+  font-size: 0.56em;
+  vertical-align: 0.62em;
+  letter-spacing: 0;
+}
+
+.t-title-1 {
+  font-size: var(--fs-title-1);
+  line-height: var(--lh-title-1);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-variation-settings: 'opsz' 32;
+}
+
+.t-title-2 {
+  font-size: var(--fs-title-2);
+  line-height: var(--lh-title-2);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.t-secondary {
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  color: var(--text-2);
+}
+
+/* For text that screen readers need but sighted users don't (the hidden "to" and similar). */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Reduced motion (§5): things change instantly. Components add their own calmer variants. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Windows high contrast and similar: the focus ring takes the system's highlight colour. */
+@media (forced-colors: active) {
+  :is(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline-color: Highlight;
+    box-shadow: none;
+  }
+}

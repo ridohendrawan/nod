@@ -1,0 +1,116 @@
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+### frame http://localhost:8802/test.html?track=1&alts=3
+{"t":592,"type":"probe","ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36","unprefixed":"function","prefixed":"function","same":true,"phraseCtor":"function","available":"function","install":"function","protoProps":["grammars","lang","continuous","interimResults","maxAlternatives","onaudiostart","onsoundstart","onspeechstart","onspeechend","onsoundend","onaudioend","onresult","onnomatch","onerror","onstart","onend","abort","start","stop","unspokenPunctuation","quality","processLocally","phrases","constructor"],"isSecureContext":true,"inIframe":false,"policyMic":true,"policyOnDevice":true,"policyFeatures":["on-device-speech-recognition","microphone"],"micPermission":"granted","availability":{"en-AU:local":"downloadable","en-AU:any":"available","en-AU:local:command":"downloadable","en-AU:local:dictation":"unavailable","en-AU:local:conversation":"unavailable","en-US:local":"downloadable","en-US:any":"available","en-US:local:command":"downloadable","en-US:local:dictation":"unavailable","en-US:local:conversation":"unavailable","en-GB:local":"downloadable","en-GB:any":"available","en-GB:local:command":"downloadable","en-GB:local:dictation":"unavailable","en-GB:local:conversation":"unavailable"}}
+{"t":4178,"type":"gum","label":"Fake Default Audio Input","settings":{"autoGainControl":true,"channelCount":1,"deviceId":"default","echoCancellation":true,"groupId":"03c44be0e7fcc78082646bfceb07a1baeb226305bfb3e06355a389b11dbd0c18","latency":0.01,"noiseSuppression":true,"sampleRate":48000,"sampleSize":16,"voiceIsolation":false}}
+{"t":4178,"type":"config","lang":"en-AU","continuous":true,"interimResults":true,"maxAlternatives":3,"processLocally":false,"unspokenPunctuation":false}
+{"t":4178,"type":"start-called"}
+{"t":4284,"type":"start"}
+{"t":4287,"type":"audiostart"}
+{"t":5182,"type":"meter","rms":0.382,"peak":0.382}
+{"t":5284,"type":"soundstart"}
+{"t":5284,"type":"speechstart"}
+{"t":6179,"type":"meter","rms":0.4865,"peak":0.4865}
+{"t":6251,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"right","c":0.01}]}]}
+{"t":6570,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"right two","c":0.01}]}]}
+{"t":6674,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"right two things","c":0.01}]}]}
+{"t":6839,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" two things","c":0.01}]}]}
+{"t":7141,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" things","c":0.01}]}]}
+{"t":7179,"type":"meter","rms":0.1768,"peak":0.4865}
+{"t":7276,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"right two things","c":0.9}]}]}
+{"t":7532,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" Sarah","c":0.01}]}]}
+{"t":7816,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" Sarah want","c":0.01}]}]}
+{"t":7878,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" Sarah wants","c":0.01}]}]}
+{"t":8054,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" Sarah wants the","c":0.01}]}]}
+{"t":8117,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" wants the","c":0.01}]}]}
+{"t":8172,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" wants the pend","c":0.01}]}]}
+{"t":8178,"type":"meter","rms":0.1824,"peak":0.4865}
+{"t":8278,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" wants the pendant","c":0.01}]}]}
+{"t":8475,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the pendant","c":0.01}]}]}
+{"t":8598,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the pendant lights","c":0.01}]}]}
+{"t":8651,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" pendant lights","c":0.01}]}]}
+{"t":8786,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" pendant lights over","c":0.01}]}]}
+{"t":8897,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" lights over the","c":0.01}]}]}
+{"t":9179,"type":"meter","rms":0.0893,"peak":0.4865}
+{"t":9190,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" over the Ben","c":0.01}]}]}
+{"t":9307,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" over the bench","c":0.01}]}]}
+{"t":9354,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the bench","c":0.01}]}]}
+{"t":9483,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" bench move","c":0.01}]}]}
+{"t":9684,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" bench moved","c":0.01}]}]}
+{"t":9910,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" moved","c":0.01}]}]}
+{"t":10162,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" moved 300","c":0.01}]}]}
+{"t":10178,"type":"meter","rms":0.074,"peak":0.4865}
+{"t":10284,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 300","c":0.01}]}]}
+{"t":10409,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 300 M","c":0.01}]}]}
+{"t":10466,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 300 mil","c":0.01}]}]}
+{"t":10560,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 300 mil to","c":0.01}]}]}
+{"t":10633,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 300 mil to the","c":0.01}]}]}
+{"t":10747,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" mil to the","c":0.01}]}]}
+{"t":10803,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" mil to the left","c":0.01}]}]}
+{"t":11039,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" to the left","c":0.01}]}]}
+{"t":11158,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the left","c":0.01}]}]}
+{"t":11178,"type":"meter","rms":0.0074,"peak":0.4865}
+{"t":11270,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" left","c":0.01}]}]}
+{"t":11445,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" that's","c":0.01}]}]}
+{"t":12005,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 3","c":0.01}]}]}
+{"t":12179,"type":"meter","rms":0.0397,"peak":0.4865}
+{"t":12202,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 380","c":0.01}]}]}
+{"t":12365,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 380 and","c":0.01}]}]}
+{"t":12604,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 380 and an","c":0.01}]}]}
+{"t":12722,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" 380 and an extra","c":0.01}]}]}
+{"t":12793,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and an extra","c":0.01}]}]}
+{"t":12919,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and an extra day","c":0.01}]}]}
+{"t":12984,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" an extra day","c":0.01}]}]}
+{"t":13179,"type":"meter","rms":0.22,"peak":0.4865}
+{"t":13203,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" extra day","c":0.01}]}]}
+{"t":13332,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" day","c":0.01}]}]}
+{"t":13531,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and","c":0.01}]}]}
+{"t":13893,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and Sarah","c":0.01}]}]}
+{"t":14055,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" and Sarah is","c":0.01}]}]}
+{"t":14124,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" Sarah is","c":0.01}]}]}
+{"t":14166,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" Sarah is drop","c":0.01}]}]}
+{"t":14178,"type":"meter","rms":0.2036,"peak":0.4865}
+{"t":14241,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" Sarah is dropping","c":0.01}]}]}
+{"t":14351,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" Sarah is dropping the","c":0.01}]}]}
+{"t":14470,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" is dropping the","c":0.01}]}]}
+{"t":14644,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" dropping the","c":0.01}]}]}
+{"t":14710,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" dropping the L","c":0.01}]}]}
+{"t":14856,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the LED","c":0.01}]}]}
+{"t":14952,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" LED","c":0.01}]}]}
+{"t":15179,"type":"meter","rms":0.1201,"peak":0.4865}
+{"t":15323,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" LED strip","c":0.01}]}]}
+{"t":15503,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" strip","c":0.01}]}]}
+{"t":15547,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" strip under","c":0.01}]}]}
+{"t":15707,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" strip under the","c":0.01}]}]}
+{"t":15934,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" under the cabin","c":0.01}]}]}
+{"t":16079,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the cabin","c":0.01}]}]}
+{"t":16153,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" the cabinets","c":0.01}]}]}
+{"t":16179,"type":"meter","rms":0.0002,"peak":0.4865}
+{"t":16270,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" cabinets","c":0.01}]}]}
+{"t":16756,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" so","c":0.01}]}]}
+{"t":16990,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" so take","c":0.01}]}]}
+{"t":17178,"type":"meter","rms":0.2239,"peak":0.4865}
+{"t":17390,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets so","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" take","c":0.01}]}]}
+{"t":17630,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets so take","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" $4","c":0.01}]}]}
+{"t":17699,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets so take","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" $400","c":0.01}]}]}
+{"t":17835,"type":"result","resultIndex":0,"len":2,"results":[{"i":0,"final":false,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets so take","c":0.9}]},{"i":1,"final":false,"alts":[{"t":" $400 off","c":0.01}]}]}
+{"t":18179,"type":"meter","rms":0,"peak":0.4865}
+{"t":18570,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":true,"alts":[{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets so take $400 off","c":0.965},{"t":"right two things Sarah wants the pendant lights over the bench moved 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets so take 400 off","c":0.962},{"t":"right two things Sarah wants the pendant lights over the bench move 300 mil to the left that's 380 and an extra day and Sarah is dropping the LED strip under the cabinets so take 400 off","c":0.94}]}]}
+{"t":19179,"type":"meter","rms":0,"peak":0.4865}
+{"t":20178,"type":"meter","rms":0,"peak":0.4865}
+{"t":21179,"type":"meter","rms":0,"peak":0.4865}
+{"t":22179,"type":"meter","rms":0,"peak":0.4865}
+{"t":23178,"type":"meter","rms":0,"peak":0.4865}
+{"t":24179,"type":"meter","rms":0,"peak":0.4865}
+{"t":25179,"type":"meter","rms":0,"peak":0.4865}
+{"t":26179,"type":"meter","rms":0,"peak":0.4865}
+{"t":27179,"type":"meter","rms":0,"peak":0.4865}
+{"t":28178,"type":"meter","rms":0,"peak":0.4865}
+{"t":29179,"type":"meter","rms":0,"peak":0.4865}
+{"t":30179,"type":"meter","rms":0,"peak":0.4865}
+{"t":31178,"type":"meter","rms":0,"peak":0.4865}
+{"t":32179,"type":"meter","rms":0,"peak":0.4865}
+{"t":32695,"type":"speechend"}
+{"t":32695,"type":"soundend"}
+{"t":32695,"type":"audioend"}
+{"t":32777,"type":"end"}
+### wall ms 33683

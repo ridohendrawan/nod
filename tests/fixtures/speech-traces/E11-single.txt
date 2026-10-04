@@ -1,0 +1,29 @@
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+### frame http://localhost:8811/test.html?track=1&continuous=0
+{"t":258,"type":"probe","ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36","unprefixed":"function","prefixed":"function","same":true,"phraseCtor":"function","available":"function","install":"function","protoProps":["grammars","lang","continuous","interimResults","maxAlternatives","onaudiostart","onsoundstart","onspeechstart","onspeechend","onsoundend","onaudioend","onresult","onnomatch","onerror","onstart","onend","abort","start","stop","unspokenPunctuation","quality","processLocally","phrases","constructor"],"isSecureContext":true,"inIframe":false,"policyMic":true,"policyOnDevice":true,"policyFeatures":["on-device-speech-recognition","microphone"],"micPermission":"granted","availability":{"en-AU:local":"downloadable","en-AU:any":"available","en-AU:local:command":"downloadable","en-AU:local:dictation":"unavailable","en-AU:local:conversation":"unavailable","en-US:local":"downloadable","en-US:any":"available","en-US:local:command":"downloadable","en-US:local:dictation":"unavailable","en-US:local:conversation":"unavailable","en-GB:local":"downloadable","en-GB:any":"available","en-GB:local:command":"downloadable","en-GB:local:dictation":"unavailable","en-GB:local:conversation":"unavailable"}}
+{"t":1239,"type":"gum","label":"Fake Default Audio Input","settings":{"autoGainControl":true,"channelCount":1,"deviceId":"default","echoCancellation":true,"groupId":"8da7c721dd69573236808a3b8a27714830fc998030643b989144069db29dee84","latency":0.01,"noiseSuppression":true,"sampleRate":48000,"sampleSize":16,"voiceIsolation":false}}
+{"t":1240,"type":"config","lang":"en-AU","continuous":false,"interimResults":true,"maxAlternatives":1,"processLocally":false,"unspokenPunctuation":false}
+{"t":1240,"type":"start-called"}
+{"t":1246,"type":"start"}
+{"t":1256,"type":"audiostart"}
+{"t":2241,"type":"meter","rms":0,"peak":0}
+{"t":2345,"type":"soundstart"}
+{"t":2345,"type":"speechstart"}
+{"t":3200,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah","c":0.01}]}]}
+{"t":3240,"type":"meter","rms":0.424,"peak":0.4494}
+{"t":3840,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah's asked for","c":0.01}]}]}
+{"t":3995,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah's asked for an","c":0.01}]}]}
+{"t":4107,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"Sarah's asked for an extra","c":0.01}]}]}
+{"t":4241,"type":"meter","rms":0.1926,"peak":0.4494}
+{"t":5240,"type":"meter","rms":0.1039,"peak":0.4494}
+{"t":6240,"type":"meter","rms":0.0936,"peak":0.4494}
+{"t":7241,"type":"meter","rms":0.2019,"peak":0.4494}
+{"t":7391,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"2","c":0.01}]}]}
+{"t":7508,"type":"result","resultIndex":0,"len":1,"results":[{"i":0,"final":false,"alts":[{"t":"220","c":0.01}]}]}
+{"t":8240,"type":"meter","rms":0.2096,"peak":0.4494}
+{"t":9240,"type":"meter","rms":0,"peak":0.4494}
+{"t":9785,"type":"speechend"}
+{"t":9785,"type":"soundend"}
+{"t":9785,"type":"audioend"}
+{"t":9822,"type":"end"}
+### wall ms 10743

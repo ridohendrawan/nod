@@ -1,0 +1,1223 @@
+/* Dan's screens: docs/ux-spec.md 1 and 2, docs/design-system.md 1.1, 4 and 7.
+   Warm premium: an amber glow behind the hero, white cards that lift off warm paper, one ink
+   instrument card for the money, and a pill-shaped Record key. */
+
+html {
+  /* Whatever gets focus, and Back's targets, land in full view: under the floating header and its
+     24 px fade, above the bottom bar. Both keep their heights in --header-cover and --bar-cover
+     while they float (AppHeader.tsx; D84; WCAG 2.2 Focus Not Obscured). */
+  scroll-padding-top: calc(var(--header-cover, 0px) + var(--s-6));
+  scroll-padding-bottom: calc(var(--bar-cover, 0px) + var(--s-4));
+}
+
+.screen {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* The glow: late light from the top right. Text over it uses ink or --text-2-strong (8:1). */
+.screen-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: 560px;
+  background:
+    radial-gradient(
+      115% 72% at 100% 0%,
+      rgba(255, 184, 0, 0.3),
+      rgba(255, 184, 0, 0.12) 42%,
+      rgba(255, 184, 0, 0) 72%
+    ),
+    radial-gradient(60% 40% at 0% 0%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.screen-glow-soft::before {
+  height: 420px;
+  background: radial-gradient(
+    90% 60% at 100% 0%,
+    rgba(255, 184, 0, 0.22),
+    rgba(255, 184, 0, 0) 70%
+  );
+}
+
+@media (prefers-contrast: more) {
+  .screen-glow::before {
+    display: none;
+  }
+}
+
+/* ---- Header ------------------------------------------------------------------------------ */
+
+.app-header {
+  position: relative;
+  z-index: 20;
+  padding-top: var(--safe-top);
+}
+
+/* On inner screens the controls float: opaque pills over the content, so their contrast holds. */
+.app-header.is-floating {
+  position: sticky;
+  top: 0;
+}
+
+/* Once the page scrolls, a band of paper fades in behind them, so nothing shows between pills. */
+.app-header.is-floating::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 -24px;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 60%, rgba(242, 239, 232, 0) 100%);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+  pointer-events: none;
+}
+
+.app-header.is-floating.is-scrolled::before {
+  opacity: 1;
+}
+
+.app-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  max-width: var(--content-builder);
+  min-height: 72px; /* grows with 200% text instead of clipping it */
+  margin: 0 auto;
+  padding: 12px var(--gutter);
+}
+
+.app-header-left,
+.app-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+.app-header-right {
+  flex-shrink: 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand .logo {
+  border-radius: 34%; /* follows the squircle, so the shadow does too */
+  box-shadow: 0 10px 20px -10px rgba(20, 22, 26, 0.55);
+}
+
+.brand-text {
+  display: grid;
+  gap: 3px;
+}
+
+.brand-name {
+  font-size: var(--fs-title-2);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* "by Good": the maker, small and quiet under the product's name. */
+.brand-by {
+  color: var(--text-2-strong);
+  font-size: var(--fs-caption);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.brand-by b {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Back: a white pill with the screen it goes back to, so the target is big and named. */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: var(--target);
+  padding: 0 var(--s-4) 0 10px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  color: var(--ink);
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.back-link:active {
+  transform: scale(0.97);
+}
+
+.back-link span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.back-link svg {
+  flex-shrink: 0;
+}
+
+.app-header .state-chip {
+  min-height: 36px;
+  padding: 6px 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.chip-ai-off {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--panel-amber);
+  font-size: var(--fs-pill);
+  line-height: var(--lh-pill);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---- Page frame ------------------------------------------------------------------------- */
+
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--s-2) var(--gutter) var(--s-10);
+}
+
+.page-builder {
+  max-width: var(--content-builder);
+}
+
+.page-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-2);
+}
+
+.page-head h1 {
+  overflow-wrap: anywhere;
+}
+
+.section {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+.count-chip {
+  display: inline-grid;
+  place-items: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  font-size: var(--fs-caption);
+  line-height: 1;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.card {
+  border: 1px solid transparent; /* an outline in forced-colours mode */
+  border-radius: var(--r-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+/* Full-screen states: a crashed screen, a missing page or job, storage that won't open. */
+.full-state {
+  justify-content: center;
+  gap: var(--s-4);
+  padding-top: var(--s-10);
+  padding-bottom: var(--s-12);
+}
+
+.state-mark {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: var(--s-2);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  color: var(--ink);
+}
+
+.full-state > p {
+  color: var(--text-2-strong);
+}
+
+/* ---- Jobs: the hero ----------------------------------------------------------------------- */
+
+.hero {
+  display: grid;
+  gap: 0;
+  padding-top: var(--s-2);
+}
+
+.hero-hello {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.hero-hello-text {
+  display: grid;
+  min-width: 0;
+}
+
+.hero-date {
+  color: var(--text-2-strong);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 500;
+}
+
+.hero h1 {
+  margin-top: 2px;
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.hero-figure {
+  margin-top: var(--s-4);
+  font-size: min(var(--fs-display), 15.5vw);
+}
+
+.hero-sub {
+  margin-top: var(--s-2);
+  color: var(--text-2-strong);
+  font-size: var(--fs-body-builder);
+  line-height: var(--lh-body-builder);
+  font-weight: 500;
+}
+
+.hero-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: var(--s-6);
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 600;
+}
+
+.hero-status::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--dot, var(--ink));
+}
+
+.hero-status.tone-go {
+  --dot: var(--go);
+}
+
+.hero-status.tone-wait {
+  --dot: var(--amber);
+}
+
+.hero-status.tone-ask {
+  --dot: var(--ask);
+}
+
+.hero-status.tone-neutral {
+  --dot: var(--text-3);
+}
+
+.hero-status.tone-go,
+.hero-status.tone-wait,
+.hero-status.tone-ask,
+.hero-status.tone-neutral {
+  color: var(--ink);
+}
+
+.hero-skeleton {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+/* The job strip: one segment per job, by what it needs. The legend under it says it in words. */
+.job-strip {
+  display: flex;
+  gap: 5px;
+  height: 12px;
+  margin-top: var(--s-3);
+}
+
+.job-strip > span {
+  flex: 1;
+  border-radius: 6px;
+}
+
+.seg-ask,
+.swatch-ask {
+  background: var(--ask);
+}
+
+.seg-wait,
+.swatch-wait {
+  background: repeating-linear-gradient(135deg, var(--amber) 0 4px, #ffd25c 4px 8px);
+  box-shadow: inset 0 0 0 1.5px var(--wait);
+}
+
+.seg-draft,
+.swatch-draft {
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
+}
+
+.seg-signed,
+.swatch-signed {
+  background: var(--ink);
+}
+
+.seg-idle,
+.swatch-idle {
+  background: #ddd7cb;
+}
+
+.strip-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: var(--s-3) 0 0;
+  list-style: none;
+  color: var(--text-2-strong);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.strip-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.strip-legend .swatch {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+/* ---- Jobs: the cards ------------------------------------------------------------------------ */
+
+.job-list {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  list-style: none;
+}
+
+.job-card {
+  display: grid;
+  overflow: hidden;
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.job-card-body {
+  display: grid;
+  gap: var(--s-4);
+  padding: var(--s-4);
+}
+
+/* The photo banner: the kind of job at a glance, with the state's rules on the corner. */
+.job-card-media {
+  position: relative;
+  display: block;
+  height: 128px;
+  background: var(--neutral-tint);
+}
+
+.photo {
+  display: block;
+  background-color: var(--neutral-tint);
+  background-position: center;
+  background-size: cover;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.job-card-media .photo {
+  position: absolute;
+  inset: 0;
+}
+
+.job-card-media .state-chip {
+  position: absolute;
+  top: var(--s-3);
+  right: var(--s-3);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.job-card.has-media .job-card-body {
+  padding-top: 0;
+}
+
+.job-card.has-media .job-card-head .avatar {
+  position: relative; /* above the photo it overlaps */
+  z-index: 1;
+  margin-top: -24px;
+}
+
+.job-card.has-media .job-card-names {
+  padding-top: 10px;
+}
+
+.job-card:active {
+  transform: scale(0.985);
+  box-shadow: var(--shadow-card-press);
+}
+
+.job-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+}
+
+.job-card-names {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.job-card-client {
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.job-card-job {
+  margin-top: 2px;
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 500;
+}
+
+.job-card-place {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 500;
+}
+
+.job-card-place svg {
+  flex-shrink: 0;
+  color: var(--text-3);
+}
+
+.job-card-place .state-chip {
+  min-height: 22px;
+  margin-left: 2px;
+  padding: 2px 8px;
+}
+
+.job-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line);
+}
+
+/* At 200% text on a 320 px phone, "All changes signed" on its own line is nearly as wide as the
+   card (1.5 px spare in Inter, 9 px short in the system font shown before Inter loads). So here
+   the pill may wrap, as a last resort, rather than push the page sideways. */
+.job-card-foot .pill {
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.job-card-total {
+  display: grid;
+  gap: 6px;
+}
+
+.job-card-total .label,
+.label-sm {
+  color: var(--text-3);
+  font-size: var(--fs-caption);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.job-card.is-skeleton .job-card-body {
+  gap: var(--s-3);
+}
+
+/* ---- Job: the hero ------------------------------------------------------------------------ */
+
+.job-hero {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding-top: var(--s-1);
+}
+
+.job-hero-text {
+  display: grid;
+  gap: var(--s-1);
+  min-width: 0;
+}
+
+.job-hero h1 {
+  overflow-wrap: anywhere;
+}
+
+.job-hero-meta {
+  display: grid;
+  gap: 2px;
+  color: var(--text-2-strong);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 500;
+}
+
+.job-hero-place {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.job-hero-place svg {
+  flex-shrink: 0;
+  color: var(--text-3);
+}
+
+/* The cover: a photo of the kind of job, full width under the floating header. No text sits on
+   it, only the opaque header pills; the client's portrait overlaps its lower edge. */
+.job-cover {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: calc(236px + var(--safe-top));
+  overflow: hidden;
+  border-radius: 0 0 var(--r-panel) var(--r-panel);
+}
+
+.job-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 22, 26, 0.3), rgba(20, 22, 26, 0) 40%);
+}
+
+.screen.has-cover .page {
+  padding-top: calc(236px - 72px - 32px);
+}
+
+.screen.has-cover .job-hero {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+}
+
+/* ---- Job: the instrument card (the money) ----------------------------------------------------- */
+
+.money-panel {
+  position: relative;
+  display: grid;
+  gap: var(--s-5);
+  padding: var(--s-5);
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: var(--r-panel);
+  background:
+    radial-gradient(75% 55% at 100% 0%, rgba(255, 184, 0, 0.1), rgba(255, 184, 0, 0) 70%),
+    linear-gradient(180deg, var(--panel-bg), var(--panel-bg-deep) 72%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    var(--shadow-float);
+  color: var(--panel-text);
+  container-type: inline-size;
+}
+
+.money-panel > * {
+  min-width: 0;
+}
+
+/* The label and the number on the left, the ring on the right. On a narrow card the ring moves
+   up beside the label and the number takes the full width under them. */
+.money-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'label ring'
+    'figure ring';
+  align-items: center;
+  gap: var(--s-2) var(--s-4);
+}
+
+.money-hero {
+  display: contents;
+}
+
+.money-hero-label {
+  grid-area: label;
+  align-self: end;
+  color: var(--panel-text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 500;
+}
+
+/* The hero number never outgrows a 320 px phone, even at 200% text (D88). */
+.money-hero .t-money-hero {
+  grid-area: figure;
+  align-self: start;
+  font-size: min(var(--fs-money-hero), 13.5vw);
+}
+
+/* The signed ring: how many of this job's sent changes are signed. */
+.signed-ring {
+  grid-area: ring;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  margin: -4px -4px -4px 0;
+}
+
+.signed-ring svg {
+  position: absolute;
+  inset: 0;
+}
+
+.signed-ring-text {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.signed-ring-count {
+  font-size: var(--fs-headline);
+  line-height: 1.1;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.signed-ring-word {
+  margin-top: 2px;
+  color: var(--panel-text-2);
+  font-size: var(--fs-caption);
+  line-height: 1;
+  font-weight: 500;
+}
+
+/* A narrow card (320 px, or big text): the ring sits under the number instead of beside it. */
+@container (max-width: 300px) {
+  .money-top {
+    grid-template-areas:
+      'label ring'
+      'figure figure';
+  }
+
+  .signed-ring {
+    width: 68px;
+    height: 68px;
+    margin: -6px -6px 0 0;
+  }
+
+  .signed-ring-count {
+    font-size: var(--fs-label);
+  }
+
+  .signed-ring-word {
+    font-size: var(--fs-caption);
+  }
+
+  /* Room for the figures: the ledger's icons step aside on a narrow card. */
+  .money-rows dt svg {
+    display: none;
+  }
+}
+
+.money-rows {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--panel-line);
+}
+
+.money-rows > div {
+  display: flex;
+  flex-wrap: wrap; /* at large text sizes the value drops under its label */
+  align-items: center;
+  justify-content: space-between;
+  column-gap: var(--s-3);
+}
+
+.money-rows dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--panel-text-2);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: 500;
+}
+
+.money-rows dd {
+  margin-left: auto;
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* What's waiting on the client: the label and its amount on one line, like the ledger above, and
+   what approving would make the total on the full width under them. */
+.money-waiting {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    'icon label value'
+    'icon if if';
+  align-items: center;
+  gap: 2px var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid rgba(255, 184, 0, 0.36);
+  border-radius: var(--r-callout);
+  background: rgba(255, 184, 0, 0.12);
+}
+
+.money-waiting-icon {
+  grid-area: icon;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(255, 184, 0, 0.18);
+  color: var(--panel-amber);
+}
+
+.money-waiting-label {
+  grid-area: label;
+  color: var(--panel-amber);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: 600;
+}
+
+.money-if {
+  grid-area: if;
+  color: var(--panel-text-soft);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.money-waiting-value {
+  grid-area: value;
+  justify-self: end;
+  color: var(--panel-amber);
+  font-size: var(--fs-headline);
+  line-height: 1;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* A narrow card: the hourglass steps aside too (like the ledger's icons), so "Waiting on Sarah
+   (1)" keeps to one line beside its amount. After the rules above, so it wins. */
+@container (max-width: 300px) {
+  .money-waiting {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'label value'
+      'if if';
+    padding-inline: var(--s-3);
+  }
+
+  .money-waiting-icon {
+    display: none;
+  }
+}
+
+.money-panel.is-skeleton {
+  gap: var(--s-3);
+}
+
+.money-panel.is-skeleton .skeleton {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ---- Job: the variations ------------------------------------------------------------------- */
+
+.variation-list {
+  container-type: inline-size;
+  margin: 0;
+  padding: 0 var(--s-4);
+  list-style: none;
+}
+
+.variation-list > li + li {
+  border-top: 1px solid var(--line);
+}
+
+.variation-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 76px;
+  padding: var(--s-3) 0;
+}
+
+.variation-tile {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--r-tile);
+  font-size: var(--fs-caption);
+  line-height: 1;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.tile-go {
+  background: var(--go-tint);
+  color: var(--go-ink);
+}
+
+.tile-wait {
+  background: var(--wait-tint);
+  color: var(--wait-ink);
+}
+
+.tile-ask {
+  background: var(--ask-tint);
+  color: var(--ask-ink);
+}
+
+.tile-stop {
+  background: var(--stop-tint);
+  color: var(--stop-ink);
+}
+
+.tile-neutral {
+  background: var(--neutral-tint);
+  color: var(--neutral-ink);
+}
+
+.variation-main {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.variation-title {
+  font-size: var(--fs-body-builder);
+  line-height: 1.375rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.variation-meta {
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.no-price {
+  color: var(--stop);
+  font-weight: 600;
+}
+
+/* On a phone-width list the chip sits under the words instead of squeezing a long title into
+   a narrow column; side by side only where there's room for both. */
+@container (max-width: 440px) {
+  .variation-row {
+    grid-template-columns: auto minmax(0, 1fr);
+    row-gap: var(--s-2);
+  }
+
+  .variation-row .variation-tile {
+    grid-row: span 2;
+    align-self: start;
+  }
+
+  .variation-row .pill {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+.variation-row.is-skeleton {
+  align-items: center;
+}
+
+/* Nothing recorded yet: a quiet invitation, with the mic it points to. */
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-3);
+  padding: var(--s-8) var(--s-6);
+  text-align: center;
+}
+
+.empty-mark {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--wait-tint);
+  color: var(--wait-ink);
+  box-shadow: 0 0 0 10px rgba(255, 241, 204, 0.5);
+}
+
+.empty-state p {
+  max-width: 30ch;
+  color: var(--text-2);
+}
+
+/* ---- The Record dock (D84): in-flow and sticky; never over a focused field ------------------ */
+
+.action-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  padding: var(--s-6) var(--gutter) max(var(--s-4), var(--safe-bottom));
+  /* The page fades out in the top padding only: the bar's own words always sit on solid paper,
+     never over a field scrolling underneath. */
+  background: linear-gradient(180deg, rgba(242, 239, 232, 0), var(--bg) var(--s-6));
+}
+
+.action-bar-inner {
+  max-width: var(--content-builder);
+  margin: 0 auto;
+}
+
+@media (pointer: coarse) {
+  body:has(:is(input:not([type='checkbox'], [type='radio']), textarea):focus) .action-bar {
+    position: static;
+  }
+}
+
+/* Short screens and very large text: the bar joins the page instead of covering it. Media
+   query ems follow the browser's text size, so at 200% text this is any screen under 1040 px. */
+@media (max-height: 32.5em) {
+  .action-bar {
+    position: static;
+  }
+}
+
+/* The Record key: mic on the left, the words, a way-in arrow on the right. */
+.record-btn {
+  min-height: 64px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  gap: var(--s-3);
+}
+
+.record-btn > span:not(.record-mic, .record-go) {
+  flex: 1;
+  text-align: left;
+}
+
+.record-mic,
+.record-go {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.record-mic {
+  background: var(--ink);
+  color: var(--amber);
+}
+
+.record-go {
+  background: rgba(20, 22, 26, 0.09);
+}
+
+/* ---- Menu sheet ----------------------------------------------------------------------------- */
+
+.menu-list {
+  margin: 0 calc(-1 * var(--s-1));
+  list-style: none;
+}
+
+.menu-list > li + li {
+  border-top: 1px solid var(--line);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  width: 100%;
+  min-height: 64px;
+  padding: var(--s-2) var(--s-1);
+  border: 0;
+  border-radius: var(--r-input);
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+}
+
+.menu-item:active {
+  background: var(--surface-2);
+}
+
+.menu-tile {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--neutral-tint);
+  color: var(--ink);
+}
+
+.menu-tile.is-amber {
+  background: var(--wait-tint);
+  color: var(--wait-ink);
+}
+
+.menu-text {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.menu-label {
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 600;
+}
+
+.menu-hint {
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 500;
+}
+
+.menu-chevron {
+  flex-shrink: 0;
+  color: var(--text-3);
+}
+
+.menu-list .switch-row {
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-1);
+}
+
+/* About: the three parts of Nod, in order. */
+.about-steps {
+  display: grid;
+  gap: var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.about-steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s-3);
+  counter-increment: step;
+}
+
+.about-steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--ink);
+  font-size: var(--fs-label);
+  font-weight: 700;
+}
+
+.about-steps b {
+  display: block;
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 600;
+}
+
+.about-steps span {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+}

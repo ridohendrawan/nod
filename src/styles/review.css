@@ -1,0 +1,1220 @@
+/* M2 screens: Record, Review, the Sent sheet and Status (docs/ux-spec.md 3 to 6), in the warm
+   premium language of docs/design-system.md: white cards on warm paper, one ink card per screen,
+   amber for the one main action. Only transform and opacity animate, plus the nod tick's stroke. */
+
+/* ---- Shared bits ----------------------------------------------------------------------------- */
+
+/* "Variation 2 · Waiting on Sarah": the pill drops to its own line before it would push past the
+   screen's edge (big text). */
+.kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--text-2-strong);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: 600;
+}
+
+.lede {
+  color: var(--text-2-strong);
+  font-size: var(--fs-body-builder);
+  line-height: var(--lh-body-builder);
+}
+
+/* A demo result prepared in advance (D95): said quietly, in muted text, never as a warning. */
+.prepared-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+}
+
+.prepared-note svg {
+  flex-shrink: 0;
+  margin-top: calc((var(--lh-secondary) - 16px) / 2);
+}
+
+.callout-meta {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 500;
+}
+
+.callout-text > p + p {
+  margin-top: var(--s-1);
+}
+
+.callout-quote {
+  margin: var(--s-1) 0 var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border-left: 3px solid var(--ask);
+  border-radius: 0 10px 10px 0;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink);
+  font-size: var(--fs-body-builder);
+  line-height: var(--lh-body-builder);
+}
+
+.callout-quote footer {
+  margin-top: 2px;
+}
+
+.callout-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+/* A callout's column is narrower than the page: the sample buttons' padding keeps "Show the sample
+   notes" on one line at 320 px. */
+.callout-buttons > .btn {
+  padding-inline: var(--s-4);
+}
+
+.menu-tile.is-danger {
+  background: var(--stop-tint);
+  color: var(--stop-ink);
+}
+
+/* Sheets with a mark before the title ("Ready for Sarah"). */
+.sheet-head .sheet-title {
+  flex: 1;
+}
+
+.sheet-title-icon {
+  display: grid;
+  flex-shrink: 0;
+}
+
+/* The mark's one moment (D75): the house nods once, after the sheet has slid in. It pivots on
+   its own base (fill-box), dips, comes back, dips a little less, and ends at rest. */
+.logo.is-drawing .logo-home {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: logo-nod 760ms ease-in-out 220ms;
+}
+
+@keyframes logo-nod {
+  0%,
+  100% {
+    transform: none;
+  }
+  30% {
+    transform: translateY(12%) scaleY(0.93);
+  }
+  58% {
+    transform: none;
+  }
+  78% {
+    transform: translateY(6%) scaleY(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo.is-drawing .logo-home {
+    animation: none;
+  }
+}
+
+/* ---- Job: the state chip opens the job sheet ------------------------------------------------- */
+
+.app-header .state-chip-button {
+  min-height: var(--target);
+  padding: 0 var(--s-4);
+  border: 0;
+  cursor: pointer;
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.app-header .state-chip-button:active {
+  transform: scale(0.96);
+}
+
+/* ---- Job: the rows open each change -------------------------------------------------------- */
+
+a.variation-row {
+  position: relative;
+  isolation: isolate; /* the flash paints above the card, under the words */
+  margin: 0 calc(-1 * var(--s-2));
+  padding-inline: var(--s-2);
+  border-radius: var(--r-input);
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a.variation-row:active {
+  background: var(--surface-2);
+}
+
+@media (hover: hover) {
+  a.variation-row:hover {
+    background: var(--surface-2);
+  }
+}
+
+/* A note that just became several drafts: each new row flashes once and says "New". */
+.variation-row.is-fresh::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--flash);
+  opacity: 0;
+  animation: row-flash 1.8s var(--ease-out) 300ms;
+}
+
+@keyframes row-flash {
+  20% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .variation-row.is-fresh::after {
+    animation: none;
+  }
+}
+
+/* Sarah did something (D75): the row or card it concerns tints once, over 1.2 s. */
+.live-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--flash);
+  opacity: 0;
+  pointer-events: none;
+  animation: live-flash 1.2s var(--ease-out);
+}
+
+@keyframes live-flash {
+  15% {
+    opacity: 0.95;
+  }
+}
+
+/* Reduced motion: the tint simply shows for the same 1.2 s, then goes, with no fade. */
+@keyframes live-flash-hold {
+  from {
+    opacity: 0.95;
+  }
+  to {
+    opacity: 0.95;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-flash {
+    animation: live-flash-hold 1.2s step-end;
+  }
+}
+
+.job-card {
+  position: relative;
+}
+
+.job-card > :not(.live-flash),
+a.variation-row > :not(.live-flash) {
+  position: relative;
+  z-index: 1;
+}
+
+.new-tag {
+  display: inline-flex;
+  align-items: center;
+  margin-right: var(--s-2);
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--panel-amber);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 700;
+  vertical-align: 1px;
+}
+
+/* ---- Review: the header's save status ------------------------------------------------------- */
+
+.app-header .save-status {
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.save-status.is-failing {
+  color: var(--stop-ink);
+}
+
+@media (max-width: 379px) {
+  .app-header .save-status {
+    width: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .app-header .save-status .save-words {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+.save-spin {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .save-spin {
+    animation: none;
+  }
+}
+
+/* ---- Review: the cards of fields ------------------------------------------------------------- */
+
+.form-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.form-card-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--neutral-tint);
+  color: var(--ink);
+}
+
+/* Review's boxes start smaller than the note's and grow with the words. */
+.form-card textarea.input,
+.owner-wording textarea.input {
+  min-height: 96px;
+}
+
+.item-list {
+  display: grid;
+  gap: var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--s-2);
+}
+
+textarea.input.item-input {
+  min-height: 80px;
+}
+
+/* Titles wrap rather than scroll out of sight, and grow with the words where browsers can. */
+textarea.input.title-input {
+  min-height: 52px;
+  resize: none;
+}
+
+/* Level with the middle of an 80 px box, under its label. */
+.item-remove.icon-btn {
+  margin-top: calc(var(--lh-label) + var(--s-2) + 16px);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--text-2);
+}
+
+.item-add,
+.price-method-open {
+  justify-self: start;
+}
+
+.price-method-open {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.fieldset > .item-add {
+  margin-top: var(--s-1);
+}
+
+.money-field.is-drafted {
+  border-color: #c99a2e;
+  background: #fffcf3;
+}
+
+.price-hint,
+.payment-said {
+  display: grid;
+  gap: var(--s-2);
+}
+
+/* QLD: "Date Sarah asked", automatic but changeable (D57). */
+.date-asked {
+  display: grid;
+  gap: var(--s-2);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line);
+}
+
+.date-asked-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+.date-asked-value {
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Review: Dan's note, folded away (D64) --------------------------------------------------- */
+
+.note-card {
+  padding: var(--s-2);
+}
+
+.note-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  width: 100%;
+  min-height: 56px;
+  padding: var(--s-2);
+  border: 0;
+  border-radius: var(--r-input);
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+}
+
+.note-toggle:active {
+  background: var(--surface-2);
+}
+
+.note-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--wait-tint);
+  color: var(--wait-ink);
+}
+
+.note-toggle-label {
+  flex: 1;
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 600;
+}
+
+.note-chevron {
+  flex-shrink: 0;
+  color: var(--text-3);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.note-toggle[aria-expanded='true'] .note-chevron {
+  transform: rotate(180deg);
+}
+
+.note-text {
+  margin: var(--s-1) var(--s-2) var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-input);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: var(--fs-body-builder);
+  line-height: var(--lh-body-builder);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* The words a source line points at. */
+.note-text mark {
+  border-radius: 3px;
+  background: #ffe08a;
+  box-shadow: 0 0 0 2px #ffe08a;
+  color: var(--ink);
+}
+
+/* ---- Review: if Sarah approves (the one ink card here) --------------------------------------- */
+
+.card.impact {
+  display: grid;
+  gap: var(--s-2);
+  padding: var(--s-5);
+  background: linear-gradient(160deg, var(--panel-bg), var(--panel-bg-deep));
+  box-shadow: var(--shadow-float);
+  color: var(--panel-text);
+}
+
+.impact-label {
+  color: var(--panel-text-2);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: 600;
+}
+
+.impact-figures {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.impact-before {
+  color: var(--panel-text-2);
+  font-size: var(--fs-title-2);
+  line-height: var(--lh-title-2);
+  font-weight: 600;
+}
+
+.impact-arrow {
+  flex-shrink: 0;
+  color: var(--panel-amber);
+}
+
+.impact-after {
+  font-size: min(var(--fs-money-total), 8vw);
+  line-height: var(--lh-money-total);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.impact-empty {
+  color: var(--panel-text-soft);
+}
+
+.btn-text.delete-draft {
+  align-self: center;
+  color: var(--stop-ink);
+}
+
+/* ---- Review: the Send bar (D17, D84) --------------------------------------------------------- */
+
+.send-bar {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.send-bar-error {
+  display: flex;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-input);
+  background: var(--stop-tint);
+  color: var(--stop-ink);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 600;
+}
+
+.send-bar-error svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.send-bar-note {
+  color: var(--text-2-strong);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 500;
+  text-align: center;
+}
+
+.send-bar-note.is-blocked {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Side by side while they fit; each takes a full row when they don't (big text). */
+.send-bar {
+  container-type: inline-size;
+}
+
+.send-bar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.send-bar-preview svg {
+  display: none;
+}
+
+/* A 320 px phone (or "Send update to Sarah" on any phone): the preview turns into a round eye
+   button (its name stays "What Sarah sees"), so Send keeps one row instead of the bar doubling. */
+@container (max-width: 380px) {
+  .send-bar-actions.is-long {
+    flex-wrap: nowrap;
+  }
+
+  .send-bar-actions.is-long > .btn.send-bar-preview {
+    flex: 0 0 var(--target-lg);
+    min-width: 0;
+    width: var(--target-lg);
+    padding: 0;
+  }
+
+  .send-bar-actions.is-long .send-bar-preview svg {
+    display: block;
+  }
+
+  .send-bar-actions.is-long .send-bar-preview > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* Big text: its label wraps inside the button rather than past the screen's edge. */
+  .send-bar-actions.is-long > .btn.send-bar-send {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
+@container (max-width: 310px) {
+  .send-bar-actions {
+    flex-wrap: nowrap;
+  }
+
+  .send-bar-actions > .btn.send-bar-preview {
+    flex: 0 0 var(--target-lg);
+    min-width: 0;
+    width: var(--target-lg);
+    padding: 0;
+  }
+
+  .send-bar-preview svg {
+    display: block;
+  }
+
+  .send-bar-preview > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .send-bar-actions > .btn.send-bar-send {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
+.send-bar-actions > .btn {
+  flex: 1 1 0;
+  min-width: fit-content;
+  gap: var(--s-2);
+  padding-inline: var(--s-3);
+  font-size: var(--fs-body-builder);
+  white-space: nowrap;
+}
+
+/* ---- What Sarah sees (her real card) ---------------------------------------------------------- */
+
+.owner-preview,
+.owner-wording {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.owner-preview .owner-card {
+  box-shadow:
+    inset 0 0 0 1px var(--line),
+    var(--shadow-card);
+}
+
+/* ---- The Sent sheet ---------------------------------------------------------------------------- */
+
+.sent-status {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-input);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 600;
+}
+
+.sent-status-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.sent-status.tone-wait .sent-status-dot {
+  background: var(--amber);
+  box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.3);
+  animation: waiting 1.6s ease-in-out infinite;
+}
+
+.sent-status.tone-go .sent-status-dot {
+  background: var(--go);
+}
+
+@keyframes waiting {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sent-status.tone-wait .sent-status-dot {
+    animation: none;
+  }
+}
+
+.sms-preview {
+  display: grid;
+  gap: var(--s-2);
+}
+
+/* Dan's text, as it will sit in his Messages app: his side, on the right. */
+.sms-bubble {
+  justify-self: end;
+  max-width: 92%;
+  padding: 10px 14px;
+  border-radius: 20px 20px 6px 20px;
+  background: var(--ask-tint);
+  color: var(--ink);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  overflow-wrap: anywhere;
+}
+
+/* ---- Status ------------------------------------------------------------------------------------ */
+
+.summary-card {
+  display: grid;
+  gap: var(--s-3);
+  padding: var(--s-5);
+}
+
+.summary-items {
+  display: grid;
+  gap: var(--s-1);
+  padding-left: 1.25em;
+}
+
+.summary-items li::marker {
+  color: var(--text-3);
+}
+
+.summary-facts {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.summary-facts > div {
+  display: grid;
+  gap: 2px;
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-facts dt {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.summary-facts dd {
+  margin: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.summary-record {
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.history {
+  margin: 0;
+  padding: var(--s-1) var(--s-4);
+  list-style: none;
+}
+
+.history-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--s-3);
+  row-gap: 2px;
+  padding: var(--s-3) 0;
+}
+
+.history-item + .history-item {
+  border-top: 1px solid var(--line);
+}
+
+.history-dot {
+  grid-row: 1 / span 2;
+  width: 10px;
+  height: 10px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--text-3);
+}
+
+.history-item.is-go .history-dot {
+  background: var(--go);
+}
+
+.history-item.is-wait .history-dot {
+  background: var(--amber);
+}
+
+.history-item.is-ask .history-dot {
+  background: var(--ask);
+}
+
+.history-item.is-stop .history-dot {
+  background: var(--stop);
+}
+
+.history-text {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.history-time {
+  grid-column: 2;
+  color: var(--text-2);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.variation-skeleton {
+  display: grid;
+  gap: var(--s-4);
+}
+
+/* ---- Record ------------------------------------------------------------------------------------ */
+
+.record-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-width: 0;
+}
+
+/* The title floats too, so it stays readable over whatever scrolls beneath. */
+.record-head-text {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+  padding: 7px 16px;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.record-head-title,
+.record-head-sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.record-head-title {
+  font-size: var(--fs-label);
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+.record-head-sub {
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: 1rem;
+  font-weight: 500;
+}
+
+/* "What's changing · Who asked and why · Your price · Any extra days": what a good note covers. */
+.say-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin: var(--s-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.say-hints li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 30px;
+  padding: 3px 11px 3px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--text-2-strong);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.say-hints svg {
+  flex-shrink: 0;
+  color: var(--ink);
+}
+
+.record-failure:focus {
+  outline: none;
+}
+
+.record-failure:focus-visible {
+  border-radius: var(--r-callout);
+}
+
+.note-field {
+  display: grid;
+  gap: var(--s-2);
+}
+
+textarea.input.note-input {
+  min-height: 140px;
+  line-height: 1.625rem;
+}
+
+/* The words still forming while Dan talks: lighter, with a soft caret, never in the note yet. */
+.note-interim {
+  color: var(--text-2);
+  font-size: var(--fs-body-builder);
+  line-height: var(--lh-body-builder);
+  font-style: italic;
+}
+
+.note-interim::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 3px;
+  background: var(--amber);
+  vertical-align: -0.15em;
+  animation: caret 1s steps(2, jump-none) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .note-interim::after {
+    animation: none;
+  }
+}
+
+.note-saved {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  font-weight: 600;
+}
+
+.samples {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.samples-toggle {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--target);
+  padding: 0 var(--s-4);
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow:
+    inset 0 0 0 1.5px var(--line-strong),
+    var(--shadow-card);
+  color: var(--ink);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  font-weight: 600;
+}
+
+.samples-toggle:active {
+  transform: scale(0.97);
+}
+
+.samples-chevron {
+  color: var(--text-2);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.samples-toggle[aria-expanded='true'] .samples-chevron {
+  transform: rotate(180deg);
+}
+
+.samples-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.samples-list[hidden] {
+  display: none;
+}
+
+.samples-list .btn {
+  padding-inline: var(--s-4);
+}
+
+/* The bottom area, adapting to the note (D49). */
+.record-dock {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.voice-stage {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-2);
+  padding-top: var(--s-3);
+  text-align: center;
+}
+
+.voice-stage .mic-button {
+  margin-bottom: var(--s-1);
+}
+
+.voice-label {
+  font-size: var(--fs-headline);
+  line-height: var(--lh-headline);
+  font-weight: 700;
+}
+
+.voice-status {
+  display: grid;
+  gap: 2px;
+}
+
+.voice-stage .voice-status {
+  justify-items: center;
+}
+
+.voice-main {
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+  font-weight: 600;
+}
+
+.voice-helper {
+  max-width: 36ch;
+  color: var(--text-2-strong);
+  font-size: var(--fs-secondary);
+  line-height: var(--lh-secondary);
+}
+
+.voice-timer {
+  font-variant-numeric: tabular-nums;
+}
+
+.record-dock-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+/* One line at any normal size; with big text the label wraps inside the button rather than push
+   past the screen's edge. */
+.record-dock-row .record-draft {
+  flex: 1;
+  min-width: 0;
+  padding-inline: var(--s-4);
+  text-wrap: balance;
+}
+
+.mic-small.icon-btn {
+  width: var(--target-lg);
+  height: var(--target-lg);
+  box-shadow:
+    inset 0 0 0 1.5px var(--line-strong),
+    var(--shadow-card);
+}
+
+/* Drafting (D66) and "Nothing to sign here". */
+.drafting,
+.nothing {
+  display: grid;
+  gap: var(--s-6);
+}
+
+.drafting-step {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: var(--target);
+  padding: var(--s-2) var(--s-5) var(--s-2) var(--s-4);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  font-weight: 600;
+  animation: step-in 320ms var(--ease-out);
+}
+
+.drafting-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(255, 184, 0, 0.25);
+  animation: waiting 1.2s ease-in-out infinite;
+}
+
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drafting-step,
+  .drafting-dot {
+    animation: none;
+  }
+}
+
+.drafting-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-3);
+  padding: var(--s-5);
+}
+
+.drafting-chips {
+  display: flex;
+  gap: var(--s-2);
+}
+
+.nothing .state-mark {
+  margin-bottom: var(--s-1);
+}
+
+.site-note {
+  display: grid;
+  gap: var(--s-2);
+  padding: var(--s-5);
+}
+
+/* ---- M4: photos, replies, withdrawing ------------------------------------------------------- */
+
+.photo-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+/* Side by side only when both labels fit on one line (11rem is "Choose photo" with its icon);
+   otherwise each takes the full width, never a two-line label. */
+.photo-buttons > .btn {
+  flex: 1 1 11rem;
+}
+
+.photo-picked {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-3);
+}
+
+.photo-thumb {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: var(--r-callout);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.photo-error {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-2);
+}
+
+.reply-form {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-3);
+  margin: var(--s-2) 0;
+}
+
+.reply-form .field {
+  width: 100%;
+}
+
+.reply-form textarea.input {
+  min-height: 96px;
+}
+
+.btn-text.withdraw-link {
+  justify-self: center;
+  color: var(--stop-ink);
+}

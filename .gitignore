@@ -1,0 +1,40 @@
+# Dependencies and builds
+node_modules
+dist
+dist-ssr
+*.local
+*.tsbuildinfo
+
+# Secrets: never commit. The only env files in git are the public, browser-side
+# ones below (they hold the function URL, nothing secret).
+.env
+.env.*
+!.env.development
+!.env.production
+!.env.example
+
+# Supabase CLI state
+supabase/.temp
+supabase/.branches
+
+# Deploy tooling
+.vercel
+
+# Test output
+playwright-report
+test-results
+blob-report
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editors and OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.sw?

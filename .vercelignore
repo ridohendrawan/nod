@@ -1,0 +1,17 @@
+# Never upload secrets
+.env
+.env.local
+.env.*.local
+**/.env
+**/.env.local
+
+# Not needed for the build
+docs
+e2e
+tests
+.claude
+playwright-report
+test-results
+supabase
+node_modules
+dist

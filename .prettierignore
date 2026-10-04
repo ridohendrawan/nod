@@ -1,0 +1,11 @@
+# The docs are written by hand (tables, lists): never reflow them.
+docs
+*.md
+
+# Generated or tool-owned
+dist
+pnpm-lock.yaml
+pnpm-workspace.yaml
+supabase/.temp
+playwright-report
+test-results

@@ -1,0 +1,170 @@
+/* Design tokens: docs/design-system.md. Every colour pairing was measured for contrast there.
+   Warm premium (design-system 1.1): warm paper, white cards that lift off it, one ink instrument
+   card and an amber glow. Light only, 7:1 text, 48 px targets. */
+
+:root {
+  /* Base colours (§2) */
+  --bg: #f2efe8; /* warm paper: ink 15.8, text-2 7.15 */
+  --surface: #ffffff;
+  --ink: #14161a;
+  --text-2: #4a4f5a; /* 8.21 on white, 7.15 on paper */
+  --text-2-strong: #3a3f49; /* secondary text over the amber glow: 8.0 at the glow's strongest */
+  --line: #e7e2d8; /* hairlines inside cards: decorative only */
+  --amber: #ffb800; /* never text on light, never the only indicator */
+  --go: #137a3f;
+  --wait: #8a5300;
+  --ask: #1e4fc2;
+  --stop: #b42318;
+
+  /* Derived (measured) */
+  --text-3: #646976; /* hints and labels: 5.49 on white, 4.78 on paper */
+  --line-strong: #7d776b; /* control borders (WCAG 1.4.11): 4.45 on white */
+  --surface-2: #f8f6f1; /* wells inside cards */
+  --amber-press: #e6a600;
+  --ink-press: #2a2d33;
+  --blocked: #e3dfd6;
+  --flash: #fff1cc;
+  --scrim: rgba(20, 22, 26, 0.48);
+
+  /* Status tints and inks (chips and callouts): every ink is 7:1 or more on its tint */
+  --go-tint: #e3f2e8;
+  --go-ink: #0b5a2d;
+  --wait-tint: #fff1cc;
+  --wait-ink: #663d00;
+  --ask-tint: #e6ecfb;
+  --ask-ink: #173c96;
+  --stop-tint: #fbe8e6;
+  --stop-ink: #8c1b12;
+  --neutral-tint: #ece8e0;
+  --neutral-ink: #3a3f49;
+
+  /* The ink instrument card (the money): measured on its lighter stop, #1F2228 */
+  --panel-bg: #1f2228;
+  --panel-bg-deep: #14161a;
+  --panel-text: #ffffff; /* 15.9 */
+  --panel-text-2: #b4b8c0; /* 8.0, kept clear of the card's glow */
+  --panel-text-soft: #d9dce1; /* 9.0 inside the amber waiting box */
+  --panel-amber: #ffb800; /* 9.2; 7.1 inside the waiting box */
+  --panel-go: #5fd08f; /* 8.3 */
+  --panel-line: rgba(255, 255, 255, 0.1);
+
+  /* Avatars: initials on a soft tint, 7:1 or more */
+  --avatar-amber: #ffe7a3;
+  --avatar-amber-ink: #5a3a00;
+  --avatar-sky: #dce6fb;
+  --avatar-sky-ink: #173c96;
+  --avatar-sage: #ddefe3;
+  --avatar-sage-ink: #094a25;
+  --avatar-clay: #f6e0d6;
+  --avatar-clay-ink: #7a2e12;
+
+  /* Type (§3). rem-based so text resizes; sizes are for a 390 px phone. */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fs-display: 3.25rem; /* 52: the one hero number per screen */
+  --fs-money-hero: 2.875rem; /* 46: the instrument card's total */
+  --lh-money-hero: 1.05;
+  --fs-money-input: 2.125rem; /* 34 */
+  --lh-money-input: 2.5rem;
+  --fs-money-total: 1.625rem; /* 26: card totals */
+  --lh-money-total: 1.1;
+  --fs-title-1: 1.875rem; /* 30 */
+  --lh-title-1: 2.125rem;
+  --fs-title-2: 1.25rem; /* 20 */
+  --lh-title-2: 1.625rem;
+  --fs-headline: 1.0625rem; /* 17 */
+  --lh-headline: 1.375rem;
+  --fs-body-owner: 1.0625rem; /* 17 */
+  --lh-body-owner: 1.625rem;
+  --fs-body-builder: 1rem; /* 16 */
+  --lh-body-builder: 1.5rem;
+  --fs-secondary: 0.9375rem; /* 15 */
+  --lh-secondary: 1.375rem;
+  --fs-label: 0.9375rem;
+  --lh-label: 1.25rem;
+  --fs-caption: 0.8125rem; /* 13: nothing essential smaller */
+  --lh-caption: 1.125rem;
+  --fs-pill: 0.8125rem;
+  --lh-pill: 1rem;
+  --fs-input: 1.0625rem; /* 17: iOS zooms below 16 */
+
+  /* Space: 4 px base (§4) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 28px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --gutter: 16px;
+
+  /* Size and shape */
+  --target: 48px;
+  --target-lg: 56px;
+  --mic: 96px;
+  --r-input: 14px;
+  --r-tile: 14px;
+  --r-button: 999px; /* buttons are pills */
+  --r-callout: 18px;
+  --r-card: 24px;
+  --r-panel: 28px;
+  --r-sheet: 28px;
+  --content-builder: 520px;
+  --content-owner: 560px;
+
+  /* Safe areas: the phone's own, or the ones a drawn phone frame needs (data-frame below). */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Elevation: white cards lift off the paper with a soft two-part shadow */
+  --shadow-card: 0 1px 2px rgba(20, 22, 26, 0.05), 0 12px 32px -14px rgba(20, 22, 26, 0.2);
+  --shadow-card-press: 0 1px 2px rgba(20, 22, 26, 0.06), 0 6px 18px -10px rgba(20, 22, 26, 0.2);
+  --shadow-float: 0 22px 44px -18px rgba(20, 22, 26, 0.55);
+  --shadow-amber: 0 14px 28px -12px rgba(150, 95, 0, 0.6);
+  --shadow-sheet: 0 -8px 32px rgba(20, 22, 26, 0.18);
+  --shadow-toast: 0 12px 28px -8px rgba(0, 0, 0, 0.35);
+
+  /* Motion (§5): only transform and opacity animate */
+  --dur-press: 100ms;
+  --dur-fast: 150ms;
+  --dur-base: 200ms;
+  --dur-toast: 300ms;
+  --dur-sheet-in: 400ms;
+  --dur-sheet-out: 250ms;
+  --dur-number: 600ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-exit: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@media (min-width: 400px) {
+  :root {
+    --gutter: 20px;
+  }
+}
+
+/* Inside a drawn phone on the demo stage: the frame's status bar and home
+   indicator sit over the page, like a real phone's, and the page scrolls without a scrollbar. */
+:root[data-frame='phone'] {
+  --safe-top: 44px;
+  --safe-bottom: 18px;
+  scrollbar-width: none;
+}
+
+:root[data-frame='phone']::-webkit-scrollbar {
+  display: none;
+}
+
+/* More contrast on request: darker secondary text, stronger edges (§2). */
+@media (prefers-contrast: more) {
+  :root {
+    --text-2: var(--ink);
+    --text-2-strong: var(--ink);
+    --text-3: var(--text-2);
+    --line: var(--line-strong);
+    --panel-text-2: #ffffff;
+  }
+}

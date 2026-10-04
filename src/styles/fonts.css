@@ -1,0 +1,10 @@
+/* The official Inter 4.1 build (inter-ui), latin variable subset with the opsz and wght axes.
+   It has the slashed zero and disambiguation set for record numbers, the true minus and the
+   arrow (decisions.md D45). Vite hashes the file, and a build plugin preloads it. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('inter-ui/variable-latin/InterVariable-subset.woff2') format('woff2');
+}

@@ -1,0 +1,10 @@
+[console.error] Permissions policy violation: microphone is not allowed in this document.
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+### frame http://127.0.0.1:8843/test.html?track=1
+{"t":40,"type":"probe","ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36","unprefixed":"function","prefixed":"function","same":true,"phraseCtor":"function","available":"function","install":"function","protoProps":["grammars","lang","continuous","interimResults","maxAlternatives","onaudiostart","onsoundstart","onspeechstart","onspeechend","onsoundend","onaudioend","onresult","onnomatch","onerror","onstart","onend","abort","start","stop","unspokenPunctuation","quality","processLocally","phrases","constructor"],"isSecureContext":true,"inIframe":true,"policyMic":false,"policyOnDevice":false,"policyFeatures":["on-device-speech-recognition","microphone"],"micPermission":"granted","availability":{"en-AU:local":"unavailable","en-AU:any":"unavailable","en-AU:local:command":"unavailable","en-AU:local:dictation":"unavailable","en-AU:local:conversation":"unavailable","en-US:local":"unavailable","en-US:any":"unavailable","en-US:local:command":"unavailable","en-US:local:dictation":"unavailable","en-US:local:conversation":"unavailable","en-GB:local":"unavailable","en-GB:any":"unavailable","en-GB:local:command":"unavailable","en-GB:local:dictation":"unavailable","en-GB:local:conversation":"unavailable"}}
+{"t":342,"type":"gum-error","name":"NotAllowedError","message":"Permission denied"}
+{"t":342,"type":"config","lang":"en-AU","continuous":true,"interimResults":true,"maxAlternatives":1,"processLocally":false,"unspokenPunctuation":false}
+{"t":342,"type":"start-called"}
+{"t":345,"type":"error","error":"not-allowed","message":""}
+{"t":345,"type":"end"}
+### wall ms 2946

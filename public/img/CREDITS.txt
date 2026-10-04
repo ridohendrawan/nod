@@ -1,0 +1,14 @@
+Images in Nod's demo, and where they come from.
+
+Job photos (Unsplash Licence: free to use, no permission needed; https://unsplash.com/license)
+They illustrate the kind of job. They aren't photos of any client's site.
+- jobs/kitchen-*.webp: "A kitchen with white marble islands, woven bar stools, and light wood flooring"
+  by Jakob Owens, https://unsplash.com/photos/XKLZia7hPYI (cropped and resized)
+- jobs/bathroom-*.webp: "White ceramic bathtub near green potted plant"
+  by Steven Ungermann, https://unsplash.com/photos/Aac7IlKnYX8 (cropped and resized)
+- jobs/deck-*.webp: "Wooden house with deck, shade sail, and gravel garden"
+  by Patrick Petit, https://unsplash.com/photos/WSjAqAe46hI (cropped and resized)
+
+Portraits (CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/)
+- avatars/*.svg: "Notionists" by Zoish (https://heyzoish.gumroad.com/l/notionists),
+  generated with DiceBear 9 (https://www.dicebear.com). The people are fictional.

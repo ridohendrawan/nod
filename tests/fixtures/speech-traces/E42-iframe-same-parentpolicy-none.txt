@@ -1,0 +1,10 @@
+[console.error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console.error] Permissions policy violation: microphone is not allowed in this document.
+### frame http://localhost:8842/test.html?track=1
+{"t":207,"type":"probe","ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36","unprefixed":"function","prefixed":"function","same":true,"phraseCtor":"function","available":"function","install":"function","protoProps":["grammars","lang","continuous","interimResults","maxAlternatives","onaudiostart","onsoundstart","onspeechstart","onspeechend","onsoundend","onaudioend","onresult","onnomatch","onerror","onstart","onend","abort","start","stop","unspokenPunctuation","quality","processLocally","phrases","constructor"],"isSecureContext":true,"inIframe":true,"policyMic":false,"policyOnDevice":true,"policyFeatures":["on-device-speech-recognition","microphone"],"micPermission":"granted","availability":{"en-AU:local":"downloadable","en-AU:any":"available","en-AU:local:command":"downloadable","en-AU:local:dictation":"unavailable","en-AU:local:conversation":"unavailable","en-US:local":"downloadable","en-US:any":"available","en-US:local:command":"downloadable","en-US:local:dictation":"unavailable","en-US:local:conversation":"unavailable","en-GB:local":"downloadable","en-GB:any":"available","en-GB:local:command":"downloadable","en-GB:local:dictation":"unavailable","en-GB:local:conversation":"unavailable"}}
+{"t":315,"type":"gum-error","name":"NotAllowedError","message":"Permission denied"}
+{"t":315,"type":"config","lang":"en-AU","continuous":true,"interimResults":true,"maxAlternatives":1,"processLocally":false,"unspokenPunctuation":false}
+{"t":315,"type":"start-called"}
+{"t":350,"type":"error","error":"not-allowed","message":""}
+{"t":350,"type":"end"}
+### wall ms 2034
